@@ -1,0 +1,23 @@
+
+<html>
+<body>
+
+
+
+    <h2 align="center"> SQL Queries display </align> </h2>
+
+    <tr>
+        <th><b> | Tradar Institution </b></th>
+        <th><b> | Tradar cusip </b></th>
+        <th><b> | GS product_id </b></th>
+        <th><b> | GS broker_description | </b></th>
+    </tr>
+<br>
+{% for e in row %}
+    <br>
+        {{ e }}
+    <br>
+{% endfor %}
+
+</body>
+</html>

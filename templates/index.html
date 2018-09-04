@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>{{header}}</h1>
+
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+    Upload Tradar_Transactions File
+    <form action="{% url "tradar" %}" enctype="multipart/form-data"  method="post">
+        <table>
+            {{ form.as_table }}
+        </table>
+        {% csrf_token %}
+        <input type="submit" value="Submit">
+    </form>
+    <h1>Upload files</h1>
+    <a href="upload_tradar">Upload_GS_Transactions</a><br><br>
+    <a href="upload_ssb">Upload_SSB_Transactions</a><br><br><a href="upload_ssb_balance">Upload_SSB_Balance</a><br><br>
+    <a href="upload_gs_balance">Upload_GS_Balance</a><br><br>
+    <a href="upload_tradar_balance">Upload_Tradar_Balance</a><br><br>
+
+
+    <h1>Show Records</h1>
+    <a href="list">Tradar vs GS Transactions by Institution</a><br><br>
+    <a href="tradar_ss_isin">Tradar vs SS Transactions by Institution</a><br><br>
+
+     <a href="tradar_gs_ccy">Tradar vs GS Transactions by Currency</a><br><br>
+     <a href="tradar_ss_ccy">Tradar vs SS Transactions by Currency</a><br><br>
+
+     <a href="tradar_ss_bal">Tradar vs SS Balance</a><br><br>
+    <a href="tradar_gs_bal">Tradar vs GS Balance</a><br><br>
+
+
+    <h1>Clear Records!</h1>
+    <a href= "drop_tradar_tran">Clear Tradar Transactions</a><br><br>
+    <a href="drop_tradar_balance">Clear Tradar Balances</a><br><br>
+    <a href="drop_gs_tran">Clear GS Transactions</a><br><br>
+    <a href="drop_gs_balance">Clear GS Balance</a><br><br>
+    <a href="drop_ssb_trans">Clear SSB Transactions</a><br><br>
+    <a href="drop_ssb_balance">Clear SSB Balances</a><br><br>
+
+
+    </form>
+</body>
+</html>

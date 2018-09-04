@@ -1,0 +1,24 @@
+<html>
+<body>
+
+
+
+    <h2 align="center"> Tradar vs GS Transactions by Currency </align> </h2>
+
+    <tr>
+        <th><b> | Tradar Institution </b></th>
+        <th><b> | Tradar cusip </b></th>
+        <th><b> | GS product_id </b></th>
+        <th><b> | GS broker_description  </b></th>
+        <th><b> | Tradar currency </b></th>
+        <th><b> | GS currency| </b></th>
+    </tr>
+<br>
+{% for e in row %}
+    <br>
+        {{ e }}
+    <br>
+{% endfor %}
+
+</body>
+</html>
