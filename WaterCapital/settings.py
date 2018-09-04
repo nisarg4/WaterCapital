@@ -16,7 +16,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -27,7 +27,7 @@ SECRET_KEY = 'a7sm65^bs+c-tux@aucr8s19k9x=n-)i*^y)0+p3fmau-%3ht%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['flamelambda.herokuapp.com/']
 
 
 # Application definition
@@ -55,7 +55,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'WaterCapital.urls'
-STATIC_URL = '/static/'
+STATICFILES_STORAGE='whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join((BASE_DIR),'static')
+STATIC_URL='/static/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

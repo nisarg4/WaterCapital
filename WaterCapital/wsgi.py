@@ -11,8 +11,9 @@ import os
 import sys
 
 from django.core.wsgi import get_wsgi_application
-
+from whitenoise.django import DjangoWhiteNoise
 #sys.path.append("/home/flame/PycharmProjects/WaterCapital/WaterCapital/settings.py")
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WaterCapital.settings')
 
 application = get_wsgi_application()
+application = DjangoWhiteNoise(application)
