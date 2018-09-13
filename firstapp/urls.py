@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^list/', views.test, name="test"),
     url(r'^tradar_ss_isin/', views.tradar_ss_trans_inis),
 
-    url(r'^tradar_ss_ccy/', views.tradar_gs_trans_ccy),
+    url(r'^tradar_gs_ccy/', views.tradar_gs_trans_ccy),
     url(r'^tradar_ss_ccy/', views.tradar_ss_trans_ccy),
 
     url(r'^tradar_ss_bal/', views.tradar_ss_bal),
@@ -28,5 +28,12 @@ urlpatterns = [
     url(r'^drop_ssb_balance/', views.drop_ssb_balance, name="drop_ssb_balance"),
     url(r'^drop_tradar_balance/', views.drop_tradar_balance, name="drop_tradar_balance"),
 
+
+    url(r'^download_tradar_transaction/', views.download_tradar_transaction, name="download_tradar_transaction"),
+    url(r'^download_tradar_balance/', views.download_tradar_balance, name="download_tradar_balance"),
+    url(r'^download_ssb_transaction/', views.download_ssb_transaction, name="download_ssb_transaction"),
+    url(r'^download_ssb_balance/', views.download_ssb_balance, name="download_ssb_balance"),
+    url(r'^download_gs_transaction/', views.download_gs_transaction, name="download_gs_transaction"),
+    url(r'^download_gs_balance/', views.download_gs_balance, name="download_gs_balance"),
 
 ]

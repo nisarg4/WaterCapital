@@ -3,7 +3,10 @@ from django.shortcuts import render_to_response, render
 from django.http import HttpResponseBadRequest, HttpResponse
 from django import forms
 from firstapp.models import GS_Tran,Tradar_Tran,SSB_Trans,SSB_Balance,GS_Balance,Tradar_Balance
-
+from django.core.files import File
+from django import template
+from django.template import Context
+from django.template.loader import get_template
 class UploadFileForm(forms.Form):
     file = forms.FileField()
 
@@ -301,3 +304,69 @@ def tradar_gs_bal(request) :
     "row": row
     }
     return render(request, "tradar_gs_bal.html", context)
+
+
+import os
+from django.conf import settings
+from django.http import HttpResponse
+
+
+def download_tradar_transaction(request):
+    path =  "firstapp/sampleFiles/Tradar_Transactions.xlsx"
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
+
+def download_tradar_balance(request):
+    path =  "firstapp/sampleFiles/Tradar_Balances.xlsx"
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
+
+def download_ssb_transaction(request):
+    path =  "firstapp/sampleFiles/SSB_Tansactions.xlsx"
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
+
+def download_ssb_balance(request):
+    path =  "firstapp/sampleFiles/SSB_Balance.xlsx"
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
+
+def download_gs_transaction(request):
+    path =  "firstapp/sampleFiles/GS_Transactions.xlsx"
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
+
+def download_gs_balance(request):
+    path =  "firstapp/sampleFiles/GS_Balance.xlsx"
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
